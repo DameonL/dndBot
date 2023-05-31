@@ -4,11 +4,21 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "start": "cd dist && node bot.js",
+    "dev": "concurrently \"npm run watch\" \"nodemon\""
+  },
+  "nodemonConfig": {
+    "watch": "dist",
+    "delay": 1000,
+    "exec": "npm run start"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "concurrently": "^8.0.1",
+    "nodemon": "^2.0.22",
     "typescript": "^5.0.4",
     "vite": "^4.3.8"
   },
